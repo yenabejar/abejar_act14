@@ -1,0 +1,7 @@
+- name: Installing Glance in Ubuntu
+  apt:
+    name:
+      - glance
+    state: latest
+    update_cache: yes
+  when: ansible_distribution == "Ubuntu"

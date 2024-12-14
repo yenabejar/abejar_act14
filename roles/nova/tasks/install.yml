@@ -1,0 +1,16 @@
+- name: Install nova and its dependencies in CentOS
+  yum:
+     name: 
+      - openstack-nova-api 
+      - openstack-nova-conductor
+      - openstack-nova-scheduler
+  when: ansible_distribution == "CentOS"
+
+- name: Installation Nova in Ubuntu
+  apt:
+    name:
+      - nova-compute
+      - python3-openstackclient
+    state: latest
+    update_cache: yes
+  when: ansible_distribution == "Ubuntu"

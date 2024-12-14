@@ -1,0 +1,16 @@
+- name: Installing keystone and its prerequisites in CentOS
+  yum:
+    name:
+      - openstack-keystone 
+  when: ansible_distribution == "CentOS"
+
+- name: Install Keystone in Ubuntu
+  apt:
+    name:
+      - keystone
+      - apache2
+      - php
+      - libapache2-mod-php
+    state: latest
+    update_cache: yes
+  when: ansible_distribution == "Ubuntu"

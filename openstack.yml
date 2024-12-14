@@ -1,0 +1,7 @@
+---
+- hosts: compute
+  become: true
+  roles:
+    - glance
+    - keystone
+    - nova
